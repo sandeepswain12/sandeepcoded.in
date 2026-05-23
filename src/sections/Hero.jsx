@@ -1,6 +1,9 @@
 import Button from "../components/ui/Button";
-import profile from "../assets/images/profilepic.jpeg";
 import { motion } from "framer-motion";
+import data from "../data/data.json";
+import images from "../data/images";
+
+const { hero } = data;
 
 function Hero({ darkMode }) {
   return (
@@ -16,7 +19,6 @@ function Hero({ darkMode }) {
       <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"></div>
       <div className="absolute bottom-10 right-10 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl"></div>
 
-      {/* Main Container */}
       <div className="max-w-7xl mx-auto w-full px-6 sm:px-10 lg:px-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-100px)] py-10 lg:py-0">
           {/* Left Content */}
@@ -35,15 +37,15 @@ function Hero({ darkMode }) {
                     : "bg-white border-gray-200 text-blue-600 shadow-sm"
                 }`}
               >
-                🚀 Java Full Stack Developer
+                🟢 {hero.badge}
               </div>
             </div>
 
             {/* Heading */}
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
-              Hi, I'm <br />
+              {hero.greeting} <br />
               <span className="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
-                Sandeep
+                {hero.name}
               </span>{" "}
               👋
             </h1>
@@ -54,51 +56,38 @@ function Hero({ darkMode }) {
                 darkMode ? "text-gray-300" : "text-gray-600"
               }`}
             >
-              Passionate Java Full Stack Developer focused on building scalable
-              backend systems, modern web applications, and production-grade
-              software experiences.
+              {hero.description}
             </p>
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button text="Hire Me" />
-              <Button text="View Projects" />
+              {hero.buttons.map((btn, index) => (
+                <a key={index} href={btn.href}>
+                  <Button
+                    text={btn.text}
+                    variant={btn.variant}
+                    darkMode={darkMode}
+                  />
+                </a>
+              ))}
             </div>
 
             {/* Stats */}
             <div className="flex flex-wrap gap-10 mt-12 justify-center lg:justify-start">
-              <div>
-                <h3 className="text-3xl font-bold text-blue-500">2+</h3>
-                <p
-                  className={`text-sm ${
-                    darkMode ? "text-gray-400" : "text-gray-500"
-                  }`}
-                >
-                  Years Learning
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-3xl font-bold text-blue-500">10+</h3>
-                <p
-                  className={`text-sm ${
-                    darkMode ? "text-gray-400" : "text-gray-500"
-                  }`}
-                >
-                  Projects Built
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-3xl font-bold text-blue-500">Java</h3>
-                <p
-                  className={`text-sm ${
-                    darkMode ? "text-gray-400" : "text-gray-500"
-                  }`}
-                >
-                  Backend Expertise
-                </p>
-              </div>
+              {hero.stats.map((stat, index) => (
+                <div key={index}>
+                  <h3 className="text-3xl font-bold text-blue-500">
+                    {stat.value}
+                  </h3>
+                  <p
+                    className={`text-sm ${
+                      darkMode ? "text-gray-400" : "text-gray-500"
+                    }`}
+                  >
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
             </div>
           </motion.div>
 
@@ -110,13 +99,10 @@ function Hero({ darkMode }) {
             className="flex justify-center lg:justify-end"
           >
             <div className="relative group">
-              {/* Glow Ring */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 blur-2xl opacity-40 group-hover:opacity-60 transition duration-500"></div>
-
-              {/* Image */}
               <img
-                src={profile}
-                alt="Sandeep Profile"
+                src={images[hero.profileImage]}
+                alt={`${hero.name} Profile`}
                 className="relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] lg:w-[500px] lg:h-[500px] object-cover rounded-full border-4 border-white/20 shadow-2xl backdrop-blur-md hover:scale-105 transition duration-500"
               />
             </div>

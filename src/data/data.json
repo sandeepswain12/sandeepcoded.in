@@ -1,0 +1,433 @@
+{
+  "navbar": {
+    "logo": "SandeepCoded.In",
+    "links": [
+      {
+        "name": "Home",
+        "path": "#home"
+      },
+      {
+        "name": "About",
+        "path": "#about"
+      },
+      {
+        "name": "Skills",
+        "path": "#skills"
+      },
+      {
+        "name": "Projects",
+        "path": "#projects"
+      },
+      {
+        "name": "Contact",
+        "path": "#contact"
+      }
+    ],
+    "social": {
+      "github": "https://github.com/sandeepswain12",
+      "linkedin": "https://www.linkedin.com/in/sandeep-kumar-swain-778b40237/"
+    },
+    "cta": "Hire Me"
+  },
+
+  "hero": {
+    "badge": "Associate Software Developer @Aurus Inc",
+    "greeting": "Hi, I'm",
+    "name": "Sandeep",
+    "description": "Associate Software Developer at Aurus Inc. working on secure payment workflows, iFrame PayPage integrations, wallet transaction systems, and tokenization infrastructure. Focused on backend engineering, fintech systems, and Java-based distributed applications.",
+    "buttons": [
+      {
+        "text": "Hire Me",
+        "href": "#contact",
+        "variant": "primary"
+      },
+      {
+        "text": "View Projects",
+        "href": "#projects",
+        "variant": "secondary"
+      }
+    ],
+    "stats": [
+      {
+        "value": "1+",
+        "label": "Years Experience"
+      },
+      {
+        "value": "6+",
+        "label": "Projects Built"
+      },
+      {
+        "value": "Java",
+        "label": "Backend Expertise"
+      }
+    ],
+    "profileImage": "profilepic"
+  },
+
+  "about": {
+    "sectionLabel": "About Me",
+    "heading": "Know More About Me",
+    "subheading": "Backend-focused engineer passionate about payment systems, scalable applications, and modern software architecture.",
+    "badge": "Associate Software Developer @ Aurus Inc.",
+    "title": "Building Secure Payment & Backend Systems",
+    "description": "I am an Associate Software Developer at Aurus Inc., contributing to fintech payment infrastructure within the ECST team. My work includes iFrame PayPage integrations, wallet transaction flows, merchant validation systems, and one-time token generation for downstream transaction processing. Currently involved in migrating utility configuration systems to Infinispan Cache and MariaDB to improve performance and maintainability.",
+    "profileImage": "profilepic",
+
+    "cards": [
+      {
+        "emoji": "🏦",
+        "title": "Experience",
+        "description": "Working on fintech payment infrastructure, tokenization workflows, and secure merchant integrations at Aurus Inc."
+      },
+      {
+        "emoji": "📂",
+        "title": "Projects",
+        "description": "Built backend-focused applications across fintech, authentication, AI, and full-stack web development."
+      }
+    ],
+
+    "techStack": [
+      "Java",
+      "Spring Boot",
+      "React",
+      "MySQL",
+      "MariaDB",
+      "Infinispan Cache",
+      "REST APIs",
+      "Docker",
+      "AWS"
+    ]
+  },
+
+  "skills": {
+    "sectionLabel": "My Skills",
+    "heading": "Technologies I Work With",
+    "description": "Technologies and tools I use to build secure backend systems, distributed applications, and modern full-stack solutions.",
+
+    "list": [
+      {
+        "name": "Java",
+        "icon": "☕",
+        "level": "Core Expertise"
+      },
+      {
+        "name": "Spring Boot",
+        "icon": "🚀",
+        "level": "Production Experience"
+      },
+      {
+        "name": "REST APIs",
+        "icon": "🌐",
+        "level": "Production Experience"
+      },
+      {
+        "name": "MySQL",
+        "icon": "🗄️",
+        "level": "Production Experience"
+      },
+      {
+        "name": "MariaDB",
+        "icon": "🐬",
+        "level": "Working Knowledge"
+      },
+      {
+        "name": "Infinispan Cache",
+        "icon": "⚡",
+        "level": "Working Knowledge"
+      },
+      {
+        "name": "React",
+        "icon": "⚛️",
+        "level": "Working Knowledge"
+      },
+      {
+        "name": "JavaScript",
+        "icon": "🟨",
+        "level": "Working Knowledge"
+      },
+      {
+        "name": "Hibernate",
+        "icon": "🔗",
+        "level": "Working Knowledge"
+      },
+      {
+        "name": "Tailwind CSS",
+        "icon": "🎨",
+        "level": "Working Knowledge"
+      },
+      {
+        "name": "Git",
+        "icon": "📦",
+        "level": "Working Knowledge"
+      },
+      {
+        "name": "Docker",
+        "icon": "🐳",
+        "level": "Working Knowledge"
+      },
+      {
+        "name": "AWS",
+        "icon": "☁️",
+        "level": "Working Knowledge"
+      },
+      {
+        "name": "Microservices",
+        "icon": "🧩",
+        "level": "Working Knowledge"
+      },
+      {
+        "name": "Spring Cloud",
+        "icon": "🌩️",
+        "level": "Working Knowledge"
+      },
+      {
+        "name": "PostgreSQL",
+        "icon": "🐘",
+        "level": "Working Knowledge"
+      },
+      {
+        "name": "TypeScript",
+        "icon": "🔷",
+        "level": "Working Knowledge"
+      }
+    ],
+
+    "tags": [
+      {
+        "icon": "🏦",
+        "label": "Payment Systems"
+      },
+      {
+        "icon": "🌐",
+        "label": "REST APIs"
+      },
+      {
+        "icon": "⚡",
+        "label": "Backend Development"
+      },
+      {
+        "icon": "☁️",
+        "label": "Cloud & DevOps"
+      }
+    ]
+  },
+
+  "projects": {
+    "sectionLabel": "Portfolio",
+    "heading": "Featured Projects",
+    "description": "Backend-focused and production-oriented applications showcasing experience in fintech systems, authentication workflows, distributed services, and full-stack development.",
+
+    "list": [
+      {
+        "title": "iFrame PayPage & Tokenization — Aurus Inc.",
+        "description": "Working within the ECST team at Aurus Inc. on secure iFrame-based PayPage integrations for merchant payment workflows. Contributed to wallet transaction handling, merchant validation pipelines, and generation of one-time secure tokens for downstream transaction processing.",
+        "tech": [
+          "Java",
+          "Spring Boot",
+          "iFrame",
+          "REST APIs",
+          "Tokenization",
+          "MariaDB",
+          "Infinispan Cache"
+        ],
+        "image": "payment",
+        "category": "FinTech",
+        "status": "In Production @ Aurus Inc.",
+        "github": "#",
+        "live": "#"
+      },
+
+      {
+        "title": "SaleZone — E-Commerce Platform",
+        "description": "Full-stack e-commerce platform implementing JWT authentication, product catalog management, cart workflows, order processing, and Razorpay payment integration. Built using a React frontend and Spring Boot REST APIs with MySQL persistence.",
+        "tech": [
+          "Java",
+          "Spring Boot",
+          "React",
+          "MySQL",
+          "JWT",
+          "REST APIs",
+          "Razorpay"
+        ],
+        "image": "ecom",
+        "category": "Full Stack",
+        "status": "Live — salezone.sbs",
+        "github": "https://github.com/sandeepswain12/salezone",
+        "live": "https://salezone.sbs"
+      },
+
+      {
+        "title": "EasyBuy — Microservices E-Commerce",
+        "description": "Microservices-based e-commerce system designed with independently deployable services including User, Product, Inventory, Cart, Payment, Notification, and AI modules. Built using Spring Boot, PostgreSQL, Docker, and Spring Cloud for distributed service communication.",
+        "tech": [
+          "Java",
+          "Spring Boot",
+          "Microservices",
+          "PostgreSQL",
+          "Docker",
+          "REST APIs",
+          "Spring Cloud"
+        ],
+        "image": "ecom",
+        "category": "Microservices",
+        "status": "In Progress",
+        "github": "https://github.com/sandeepswain12/easybuy",
+        "live": "#"
+      },
+
+      {
+        "title": "Auth App — Full Stack Authentication",
+        "description": "Authentication platform implementing secure user registration, JWT-based authorization, login workflows, and protected route handling using Spring Security, React, and TypeScript.",
+        "tech": [
+          "Java",
+          "Spring Boot",
+          "JWT",
+          "React",
+          "TypeScript",
+          "Spring Security",
+          "MySQL"
+        ],
+        "image": "chatbot",
+        "category": "Security",
+        "status": "Completed",
+        "github": "https://github.com/sandeepswain12/auth-app",
+        "live": "#"
+      },
+
+      {
+        "title": "BlogBrew — Blogging Platform",
+        "description": "Full-stack blogging platform implementing authentication, CRUD operations, pagination, and responsive UI design. Deployed using AWS Elastic Beanstalk with MySQL hosted on AWS RDS.",
+        "tech": [
+          "Java",
+          "Spring Boot",
+          "Spring Security",
+          "Thymeleaf",
+          "MySQL",
+          "AWS",
+          "Tailwind CSS"
+        ],
+        "image": "chatbot",
+        "category": "Full Stack",
+        "status": "Live — blogbrew.xyz",
+        "github": "https://github.com/sandeepswain12/BlogBrew",
+        "live": "https://main.blogbrew.xyz"
+      },
+
+      {
+        "title": "Conversational AI App",
+        "description": "AI-powered conversational application integrating Google Gemini API with Flask backend services and MongoDB-based chat persistence. Includes authentication, response caching, and optimized repeated-query handling to reduce unnecessary external API requests.",
+        "tech": [
+          "Python",
+          "Flask",
+          "Google Gemini API",
+          "MongoDB",
+          "bcrypt",
+          "HTML",
+          "CSS"
+        ],
+        "image": "chatbot",
+        "category": "AI Application",
+        "status": "Completed",
+        "github": "https://github.com/sandeepswain12/Conversational-Ai-Application",
+        "live": "#"
+      }
+    ],
+
+    "footer": "More backend-focused and distributed systems projects in progress 🚀"
+  },
+
+  "contact": {
+    "sectionLabel": "Contact",
+    "heading": "Let's Work Together",
+    "description": "Interested in backend engineering, fintech systems, scalable applications, or collaboration opportunities? Feel free to connect.",
+    "badge": "Get In Touch",
+    "title": "Let's Build Something Amazing Together",
+    "body": "Backend-focused Software Engineer passionate about Java systems, payment infrastructure, distributed applications, and production backend development. Open to opportunities, collaborations, and freelance projects.",
+
+    "info": [
+      {
+        "type": "email",
+        "label": "Email",
+        "value": "sandeepswain027@gmail.com"
+      },
+      {
+        "type": "phone",
+        "label": "Phone",
+        "value": "+91 9078915953"
+      },
+      {
+        "type": "location",
+        "label": "Location",
+        "value": "Pune, Maharashtra, India"
+      }
+    ],
+
+    "social": {
+      "github": "https://github.com/sandeepswain12",
+      "linkedin": "https://www.linkedin.com/in/sandeep-kumar-swain-778b40237/"
+    }
+  },
+
+  "footer": {
+    "logo": "SandeepCoded.In",
+
+    "tagline": "Associate Software Developer at Aurus Inc. building secure payment infrastructure, backend systems, and fintech applications.",
+
+    "resume": "/resume.pdf",
+
+    "quickLinks": ["Home", "About", "Skills", "Projects", "Contact"],
+
+    "social": [
+      {
+        "platform": "github",
+        "link": "https://github.com/sandeepswain12"
+      },
+      {
+        "platform": "linkedin",
+        "link": "https://www.linkedin.com/in/sandeep-kumar-swain-778b40237/"
+      },
+      {
+        "platform": "instagram",
+        "link": "https://www.instagram.com/sandeepkumarswain_/"
+      }
+    ],
+
+    "email": "sandeepswain027@gmail.com",
+
+    "copyright": "© 2026 Sandeep. Made with ❤️ using React & Tailwind CSS."
+  },
+
+  "experience": {
+    "sectionLabel": "Experience",
+    "heading": "Where I Have Worked",
+    "description": "Professional experience building real-world fintech and payment infrastructure systems.",
+
+    "list": [
+      {
+        "role": "Associate Software Developer",
+        "company": "Aurus Inc.",
+        "team": "ECST Team",
+        "duration": "2024 – Present",
+        "location": "Pune, Maharashtra, India",
+        "type": "Full-time",
+
+        "points": [
+          "Working on iFrame-based PayPage integrations for secure merchant payment workflows.",
+          "Implemented wallet transaction workflows and contributed to end-to-end PayPage transaction lifecycle handling.",
+          "Responsible for generating one-time secure tokens after merchant validation for downstream transaction processing.",
+          "Migrating utility configuration systems to Infinispan Cache and MariaDB for improved performance and maintainability."
+        ],
+
+        "tech": [
+          "Java",
+          "Spring Boot",
+          "iFrame",
+          "Infinispan Cache",
+          "MariaDB",
+          "REST APIs",
+          "Tokenization"
+        ]
+      }
+    ]
+  }
+}

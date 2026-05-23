@@ -1,69 +1,15 @@
 import { motion } from "framer-motion";
+import data from "../data/data.json";
+
+const { skills } = data;
+
+const levelWidth = {
+  Advanced: "w-[90%]",
+  Intermediate: "w-[70%]",
+  Beginner: "w-[50%]",
+};
 
 function Skills({ darkMode }) {
-  const skills = [
-    {
-      name: "Java",
-      icon: "☕",
-      level: "Advanced",
-    },
-    {
-      name: "Spring Boot",
-      icon: "🚀",
-      level: "Advanced",
-    },
-    {
-      name: "React",
-      icon: "⚛️",
-      level: "Intermediate",
-    },
-    {
-      name: "JavaScript",
-      icon: "🟨",
-      level: "Intermediate",
-    },
-    {
-      name: "MySQL",
-      icon: "🗄️",
-      level: "Advanced",
-    },
-    {
-      name: "Hibernate",
-      icon: "🔗",
-      level: "Intermediate",
-    },
-    {
-      name: "Tailwind CSS",
-      icon: "🎨",
-      level: "Intermediate",
-    },
-    {
-      name: "Git",
-      icon: "📦",
-      level: "Intermediate",
-    },
-    {
-      name: "REST APIs",
-      icon: "🌐",
-      level: "Advanced",
-    },
-    {
-      name: "Docker",
-      icon: "🐳",
-      level: "Beginner",
-    },
-    {
-      name: "AWS",
-      icon: "☁️",
-      level: "Beginner",
-    },
-    {
-      name: "Microservices",
-      icon: "⚡",
-      level: "Intermediate",
-    },
-  ];
-
   return (
     <section
       id="skills"
@@ -87,27 +33,23 @@ function Skills({ darkMode }) {
           className="text-center mb-20"
         >
           <p className="text-blue-500 font-semibold tracking-widest uppercase mb-3">
-            My Skills
+            {skills.sectionLabel}
           </p>
-
           <h2 className="text-4xl sm:text-5xl font-extrabold mb-6">
-            Technologies I Work With
+            {skills.heading}
           </h2>
-
           <p
             className={`max-w-2xl mx-auto text-lg leading-relaxed ${
               darkMode ? "text-gray-400" : "text-gray-600"
             }`}
           >
-            A strong foundation in backend development, scalable architecture,
-            frontend technologies, cloud tools, and modern development
-            practices.
+            {skills.description}
           </p>
         </motion.div>
 
         {/* Skills Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {skills.map((skill, index) => (
+          {skills.list.map((skill, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 60 }}
@@ -124,15 +66,12 @@ function Skills({ darkMode }) {
               {/* Glow Hover Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-cyan-500/0 to-blue-500/0 group-hover:from-blue-500/10 group-hover:via-cyan-500/10 group-hover:to-blue-500/10 transition duration-500"></div>
 
-              {/* Icon */}
               <div className="text-5xl mb-6 relative z-10">{skill.icon}</div>
 
-              {/* Skill Name */}
               <h3 className="text-2xl font-bold mb-3 relative z-10">
                 {skill.name}
               </h3>
 
-              {/* Level */}
               <p
                 className={`text-sm font-medium mb-6 relative z-10 ${
                   darkMode ? "text-gray-400" : "text-gray-500"
@@ -148,20 +87,16 @@ function Skills({ darkMode }) {
                 }`}
               >
                 <div
-                  className={`h-full rounded-full ${
-                    skill.level === "Advanced"
-                      ? "w-[90%]"
-                      : skill.level === "Intermediate"
-                      ? "w-[70%]"
-                      : "w-[50%]"
-                  } bg-gradient-to-r from-blue-500 to-cyan-400`}
+                  className={`h-full rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 ${
+                    levelWidth[skill.level] ?? "w-[50%]"
+                  }`}
                 ></div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Bottom Info */}
+        {/* Bottom Tags */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -176,10 +111,11 @@ function Skills({ darkMode }) {
                 : "bg-white border-gray-200 shadow-md"
             }`}
           >
-            <span className="font-medium">⚡ Backend Development</span>
-            <span className="font-medium">🌐 REST APIs</span>
-            <span className="font-medium">☁️ Cloud & DevOps</span>
-            <span className="font-medium">📦 Scalable Architecture</span>
+            {skills.tags.map((tag, index) => (
+              <span key={index} className="font-medium">
+                {tag.icon} {tag.label}
+              </span>
+            ))}
           </div>
         </motion.div>
       </div>

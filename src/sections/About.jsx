@@ -1,5 +1,8 @@
-import profile from "../assets/images/profilepic.jpeg";
 import { motion } from "framer-motion";
+import data from "../data/data.json";
+import images from "../data/images";
+
+const { about } = data;
 
 function About({ darkMode }) {
   return (
@@ -25,21 +28,17 @@ function About({ darkMode }) {
           className="text-center mb-20"
         >
           <p className="text-blue-500 font-semibold tracking-wider uppercase mb-3">
-            About Me
+            {about.sectionLabel}
           </p>
-
           <h2 className="text-4xl sm:text-5xl font-extrabold mb-6">
-            Know More About Me
+            {about.heading}
           </h2>
-
           <p
             className={`max-w-2xl mx-auto text-lg leading-relaxed ${
               darkMode ? "text-gray-400" : "text-gray-600"
             }`}
           >
-            Passionate about building scalable applications, backend systems,
-            and modern user experiences with clean architecture and production
-            standards.
+            {about.subheading}
           </p>
         </motion.div>
 
@@ -54,13 +53,10 @@ function About({ darkMode }) {
             className="flex justify-center"
           >
             <div className="relative group">
-              {/* Glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition duration-500"></div>
-
-              {/* Image */}
               <img
-                src={profile}
-                alt="Sandeep Profile"
+                src={images[about.profileImage]}
+                alt="Profile"
                 className="relative w-[300px] sm:w-[380px] lg:w-[430px] rounded-3xl object-cover shadow-2xl border border-white/10 hover:scale-105 transition duration-500"
               />
             </div>
@@ -73,7 +69,7 @@ function About({ darkMode }) {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            {/* Role */}
+            {/* Badge */}
             <div
               className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-medium mb-6 border ${
                 darkMode
@@ -81,78 +77,46 @@ function About({ darkMode }) {
                   : "bg-white border-gray-200 text-blue-600 shadow-sm"
               }`}
             >
-              💻 Java Full Stack Developer
+              💻 {about.badge}
             </div>
 
-            {/* Title */}
             <h3 className="text-3xl sm:text-4xl font-bold leading-tight mb-6">
-              Building Modern & Scalable Digital Products
+              {about.title}
             </h3>
 
-            {/* Description */}
             <p
               className={`text-lg leading-8 mb-8 ${
                 darkMode ? "text-gray-300" : "text-gray-600"
               }`}
             >
-              I'm a passionate Full Stack Developer with expertise in Java,
-              Spring Boot, MySQL, React, REST APIs, and modern web technologies.
-              I enjoy designing scalable backend systems and crafting elegant,
-              responsive frontend applications with production-grade
-              architecture.
+              {about.description}
             </p>
 
             {/* Cards */}
             <div className="grid sm:grid-cols-2 gap-6">
-              {/* Experience */}
-              <div
-                className={`p-6 rounded-2xl border transition duration-300 hover:-translate-y-2 hover:shadow-2xl ${
-                  darkMode
-                    ? "bg-gray-900 border-gray-800"
-                    : "bg-white border-gray-200 shadow-md"
-                }`}
-              >
-                <div className="text-4xl mb-4">🚀</div>
-
-                <h4 className="text-xl font-bold mb-2">Experience</h4>
-
-                <p className={darkMode ? "text-gray-400" : "text-gray-600"}>
-                  Fresher / Java Developer focused on real-world projects.
-                </p>
-              </div>
-
-              {/* Projects */}
-              <div
-                className={`p-6 rounded-2xl border transition duration-300 hover:-translate-y-2 hover:shadow-2xl ${
-                  darkMode
-                    ? "bg-gray-900 border-gray-800"
-                    : "bg-white border-gray-200 shadow-md"
-                }`}
-              >
-                <div className="text-4xl mb-4">📂</div>
-
-                <h4 className="text-xl font-bold mb-2">Projects</h4>
-
-                <p className={darkMode ? "text-gray-400" : "text-gray-600"}>
-                  10+ production-oriented and scalable applications built.
-                </p>
-              </div>
+              {about.cards.map((card, index) => (
+                <div
+                  key={index}
+                  className={`p-6 rounded-2xl border transition duration-300 hover:-translate-y-2 hover:shadow-2xl ${
+                    darkMode
+                      ? "bg-gray-900 border-gray-800"
+                      : "bg-white border-gray-200 shadow-md"
+                  }`}
+                >
+                  <div className="text-4xl mb-4">{card.emoji}</div>
+                  <h4 className="text-xl font-bold mb-2">{card.title}</h4>
+                  <p className={darkMode ? "text-gray-400" : "text-gray-600"}>
+                    {card.description}
+                  </p>
+                </div>
+              ))}
             </div>
 
             {/* Tech Stack */}
             <div className="mt-10">
               <h4 className="text-xl font-semibold mb-4">Tech Stack</h4>
-
               <div className="flex flex-wrap gap-3">
-                {[
-                  "Java",
-                  "Spring Boot",
-                  "React",
-                  "MySQL",
-                  "REST APIs",
-                  "Docker",
-                  "AWS",
-                ].map((tech, index) => (
+                {about.techStack.map((tech, index) => (
                   <span
                     key={index}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition ${

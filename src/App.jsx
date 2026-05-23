@@ -7,6 +7,7 @@ import Skills from "./sections/Skills";
 import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
 import Footer from "./components/layout/Footer";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -26,6 +27,8 @@ function App() {
       <Contact darkMode={darkMode} />
 
       <Footer darkMode={darkMode} />
+
+      <Toaster position="top-right" />
     </div>
   );
 }

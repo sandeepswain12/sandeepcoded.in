@@ -14,29 +14,32 @@ function ProjectCard({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 80 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
       whileHover={{ y: -10 }}
-      className={`group relative rounded-3xl overflow-hidden border transition-all duration-500 ${
+      transition={{ duration: 0.3 }}
+      className={`group relative rounded-3xl overflow-hidden border transition-all duration-500 flex flex-col w-full h-full ${
         darkMode
           ? "bg-gray-900 border-gray-800 hover:border-blue-500"
           : "bg-white border-gray-200 hover:border-blue-400 shadow-xl"
       }`}
     >
-      {/* Image Section */}
-      <div className="relative overflow-hidden">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-[260px] object-cover group-hover:scale-110 transition duration-700"
-        />
+      {/* Image Section — always rendered, shows placeholder if image missing */}
+      <div className="relative overflow-hidden shrink-0">
+        {image ? (
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-[220px] object-cover group-hover:scale-110 transition duration-700"
+          />
+        ) : (
+          // Fallback gradient banner when image is undefined/broken
+          <div className="w-full h-[220px] bg-gradient-to-br from-blue-600/40 via-cyan-500/30 to-blue-900/60 flex items-center justify-center">
+            <FaCode className="text-white/30 text-6xl" />
+          </div>
+        )}
 
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 
-        {/* Category */}
         {category && (
           <div className="absolute top-5 left-5">
             <span className="px-4 py-2 rounded-full text-xs font-semibold bg-blue-500 text-white shadow-lg">
@@ -45,7 +48,6 @@ function ProjectCard({
           </div>
         )}
 
-        {/* Status */}
         {status && (
           <div className="absolute bottom-5 left-5">
             <span className="px-4 py-2 rounded-full text-xs font-medium bg-white/20 backdrop-blur-md text-white border border-white/20">
@@ -55,12 +57,11 @@ function ProjectCard({
         )}
       </div>
 
-      {/* Content */}
-      <div className="p-8">
-        {/* Title */}
+      {/* Content — flex-col + flex-1 so buttons always stick to bottom */}
+      <div className="p-8 flex flex-col flex-1">
+        {/* Title row */}
         <div className="flex items-start justify-between gap-4 mb-4">
           <h3 className="text-2xl font-bold leading-snug">{title}</h3>
-
           <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center shrink-0">
             <FaCode className="text-blue-500 text-lg" />
           </div>
@@ -91,9 +92,8 @@ function ProjectCard({
           ))}
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex gap-4">
-          {/* Live Demo */}
+        {/* Buttons — mt-auto pushes to bottom regardless of content height */}
+        <div className="flex gap-4 mt-auto pt-2">
           <a
             href={live || "#"}
             target="_blank"
@@ -103,8 +103,6 @@ function ProjectCard({
             <FaExternalLinkAlt />
             Live Demo
           </a>
-
-          {/* GitHub */}
           <a
             href={github || "#"}
             target="_blank"

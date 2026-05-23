@@ -7,32 +7,20 @@ import {
   FaGithub,
   FaLinkedin,
 } from "react-icons/fa";
-
 import { motion, AnimatePresence } from "framer-motion";
+import data from "../../data/data.json";
+
+const { navbar } = data;
 
 function Navbar({ darkMode, setDarkMode }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Detect Scroll
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Nav Links
-  const navLinks = [
-    { name: "Home", path: "#home" },
-    { name: "About", path: "#about" },
-    { name: "Skills", path: "#skills" },
-    { name: "Projects", path: "#projects" },
-    { name: "Contact", path: "#contact" },
-  ];
 
   return (
     <nav
@@ -55,7 +43,7 @@ function Navbar({ darkMode, setDarkMode }) {
             className="text-3xl font-extrabold cursor-pointer"
           >
             <span className="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
-              SandeepCoded.In
+              {navbar.logo}
             </span>
           </motion.a>
 
@@ -66,7 +54,7 @@ function Navbar({ darkMode, setDarkMode }) {
             transition={{ duration: 0.6 }}
             className="hidden md:flex items-center gap-10"
           >
-            {navLinks.map((link, index) => (
+            {navbar.links.map((link, index) => (
               <li key={index}>
                 <a
                   href={link.path}
@@ -75,8 +63,6 @@ function Navbar({ darkMode, setDarkMode }) {
                   }`}
                 >
                   {link.name}
-
-                  {/* Hover Underline */}
                   <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-500 transition-all duration-300 hover:w-full"></span>
                 </a>
               </li>
@@ -85,18 +71,20 @@ function Navbar({ darkMode, setDarkMode }) {
 
           {/* Right Actions */}
           <div className="hidden md:flex items-center gap-5">
-            {/* Social Icons */}
             <a
-              href="https://github.com/sandeepswain12"
+              href={navbar.social.github}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`text-xl transition duration-300 hover:text-blue-500 ${
                 darkMode ? "text-gray-300" : "text-gray-700"
               }`}
             >
               <FaGithub />
             </a>
-
             <a
-              href="https://www.linkedin.com/in/sandeep-kumar-swain-778b40237/"
+              href={navbar.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`text-xl transition duration-300 hover:text-blue-500 ${
                 darkMode ? "text-gray-300" : "text-gray-700"
               }`}
@@ -116,18 +104,16 @@ function Navbar({ darkMode, setDarkMode }) {
               {darkMode ? <FaSun size={18} /> : <FaMoon size={18} />}
             </button>
 
-            {/* CTA Button */}
             <a
               href="#contact"
               className="px-6 py-3 rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold hover:opacity-90 transition duration-300 shadow-lg"
             >
-              Hire Me
+              {navbar.cta}
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Controls */}
           <div className="md:hidden flex items-center gap-4">
-            {/* Theme Toggle */}
             <button
               onClick={() => setDarkMode(!darkMode)}
               className={`w-11 h-11 rounded-xl flex items-center justify-center transition duration-300 ${
@@ -138,8 +124,6 @@ function Navbar({ darkMode, setDarkMode }) {
             >
               {darkMode ? <FaSun /> : <FaMoon />}
             </button>
-
-            {/* Hamburger */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className={`text-2xl ${darkMode ? "text-white" : "text-black"}`}
@@ -165,7 +149,7 @@ function Navbar({ darkMode, setDarkMode }) {
             }`}
           >
             <ul className="flex flex-col gap-6 pt-6">
-              {navLinks.map((link, index) => (
+              {navbar.links.map((link, index) => (
                 <li key={index}>
                   <a
                     href={link.path}
@@ -179,20 +163,21 @@ function Navbar({ darkMode, setDarkMode }) {
                 </li>
               ))}
             </ul>
-
-            {/* Mobile Socials */}
             <div className="flex items-center gap-5 mt-8">
               <a
-                href="#"
+                href={navbar.social.github}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`text-2xl transition duration-300 hover:text-blue-500 ${
                   darkMode ? "text-gray-300" : "text-gray-700"
                 }`}
               >
                 <FaGithub />
               </a>
-
               <a
-                href="#"
+                href={navbar.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`text-2xl transition duration-300 hover:text-blue-500 ${
                   darkMode ? "text-gray-300" : "text-gray-700"
                 }`}
@@ -200,14 +185,12 @@ function Navbar({ darkMode, setDarkMode }) {
                 <FaLinkedin />
               </a>
             </div>
-
-            {/* Mobile CTA */}
             <a
               href="#contact"
               onClick={() => setMenuOpen(false)}
               className="mt-8 block text-center px-6 py-4 rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold shadow-lg"
             >
-              Hire Me 🚀
+              {navbar.cta} 🚀
             </a>
           </motion.div>
         )}

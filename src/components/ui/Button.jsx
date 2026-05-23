@@ -7,14 +7,18 @@ function Button({
   type = "button",
   variant = "primary",
   fullWidth = false,
+  darkMode = false,
 }) {
-  // Variants
   const variants = {
+    // Always visible — gradient on all backgrounds
     primary:
-      "bg-gradient-to-r from-blue-500 to-cyan-400 text-white shadow-lg hover:shadow-blue-500/30",
+      "bg-gradient-to-r from-blue-500 to-cyan-400 text-white shadow-lg hover:shadow-blue-500/30 hover:opacity-90",
 
-    secondary:
-      "border border-gray-300 dark:border-gray-700 bg-white/10 backdrop-blur-md text-white hover:bg-white hover:text-black",
+    // Dark mode: glassy white border + white text
+    // Light mode: solid gray border + dark text + hover fills blue
+    secondary: darkMode
+      ? "border border-gray-600 bg-white/10 backdrop-blur-md text-white hover:bg-white/20 hover:border-white/40"
+      : "border-2 border-gray-800 bg-transparent text-gray-800 hover:bg-gray-900 hover:text-white",
 
     outline:
       "border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white",
@@ -40,10 +44,7 @@ function Button({
         ${fullWidth ? "w-full" : ""}
       `}
     >
-      {/* Icon */}
       {icon && <span className="text-lg">{icon}</span>}
-
-      {/* Text */}
       <span>{text}</span>
     </motion.button>
   );
