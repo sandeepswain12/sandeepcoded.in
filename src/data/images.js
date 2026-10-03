@@ -1,5 +1,5 @@
 // Image registry — import all assets here, reference by key in data.json
-import profilepic from "../assets/images/profilepic.jpeg";
+import profilepic from "../assets/images/profile-pic.png";
 import ecom from "../assets/images/ecom.jpg";
 import chatbot from "../assets/images/chatbot.jpg";
 import payment from "../assets/images/payment.jpg";
