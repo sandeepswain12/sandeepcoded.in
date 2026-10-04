@@ -333,19 +333,21 @@
         "live": null
       },
       {
-        "title": "SaleZone — E-Commerce Platform",
-        "description": "Full-stack e-commerce system featuring secure JWT authentication, product catalog management, persistent cart workflows, and end-to-end Razorpay payment gateway integration with Spring Boot backend and MySQL.",
+        "title": "SaleZone – Distributed E-Commerce Platform",
+        "description": "Built a full-stack e-commerce platform using Java 25, Spring Boot, React 19, MySQL, Redis, and Docker, implementing distributed idempotency, rate limiting, concurrency-safe inventory, Razorpay payment integration, and application observability.",
         "tech": [
-          "Java",
+          "Java 25",
           "Spring Boot",
-          "React",
+          "React 19",
           "MySQL",
-          "JWT",
-          "REST APIs",
-          "Razorpay"
+          "Redis",
+          "Docker",
+          "Razorpay",
+          "OpenTelemetry",
+          "Prometheus",
+          "Grafana"
         ],
-        "image": "ecom",
-        "category": "Full Stack",
+        "category": "E-Commerce",
         "status": "Live on Web",
         "isEnterprise": false,
         "github": "https://github.com/sandeepswain12/salezone",
