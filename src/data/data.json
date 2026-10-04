@@ -137,10 +137,11 @@
         "location": "Pune, Maharashtra, India",
         "type": "Full-time",
         "points": [
-          "Engineered and maintained secure iFrame-based PayPage integrations for enterprise merchant payment workflows.",
-          "Implemented wallet transaction workflows and contributed to end-to-end PayPage transaction lifecycle handling.",
-          "Designed and developed generation pipelines for one-time secure tokens after merchant validation for downstream transaction authorization.",
-          "Spearheading the migration of utility configuration systems to Infinispan Distributed Cache and MariaDB, significantly improving lookup throughput and maintainability."
+          "Developed and enhanced an e-commerce payment platform using Java, Spring Boot, FTLH, JavaScript, CSS, and MariaDB, supporting iframe, PayPage, Pay by Link, Hosted PayPage, and wallet solutions.",
+          "Worked on iframe and PayPage workflows, including session generation, validation, dynamic page rendering, and integration with DS, Switch, and ATV services.",
+          "Implemented secure browser-to-backend communication using AES-256-GCM, RSA-OAEP, HMAC, and SHA-256 for payload encryption, key protection, integrity validation, and secure request processing.",
+          "Contributed to card payment and OTT flows and integrations with Shop Pay, Apple Pay, Google Pay, and PayPal, supporting Pre-Auth, Sale, Capture, Void, Refund, and Re-Auth operations.",
+          "Worked on merchant onboarding, Infinispan caching, and YAML-to-MariaDB configuration migration, along with WAR deployments via SSH across primary and secondary data centers."
         ],
         "tech": [
           "Java",

@@ -40,6 +40,42 @@ function Navbar({ darkMode, setDarkMode }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavClick = (e, path) => {
+    e.preventDefault();
+    setMenuOpen(false);
+
+    const targetId = path.replace("#", "");
+
+    if (targetId === "home") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+      if (window.history.pushState) {
+        window.history.pushState(null, "", "#home");
+      }
+      return;
+    }
+
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      setTimeout(() => {
+        const headerOffset = 80;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = Math.max(0, elementPosition + window.pageYOffset - headerOffset);
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+
+        if (window.history.pushState) {
+          window.history.pushState(null, "", path);
+        }
+      }, 100);
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -55,6 +91,7 @@ function Navbar({ darkMode, setDarkMode }) {
           {/* Logo */}
           <motion.a
             href="#home"
+            onClick={(e) => handleNavClick(e, "#home")}
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
@@ -81,7 +118,8 @@ function Navbar({ darkMode, setDarkMode }) {
                 <li key={index}>
                   <a
                     href={link.path}
-                    className={`relative text-sm font-semibold transition-colors duration-200 py-1 ${
+                    onClick={(e) => handleNavClick(e, link.path)}
+                    className={`relative text-sm font-semibold transition-colors duration-200 py-1 cursor-pointer ${
                       isActive
                         ? "text-blue-500"
                         : darkMode
@@ -165,7 +203,8 @@ function Navbar({ darkMode, setDarkMode }) {
             {/* Hire Me CTA */}
             <a
               href="#contact"
-              className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-400 text-white text-xs xl:text-sm font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition duration-300"
+              onClick={(e) => handleNavClick(e, "#contact")}
+              className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-400 text-white text-xs xl:text-sm font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition duration-300 cursor-pointer"
             >
               {navbar.cta}
             </a>
@@ -223,8 +262,8 @@ function Navbar({ darkMode, setDarkMode }) {
                   <li key={index}>
                     <a
                       href={link.path}
-                      onClick={() => setMenuOpen(false)}
-                      className={`block py-2 text-base font-semibold transition ${
+                      onClick={(e) => handleNavClick(e, link.path)}
+                      className={`block py-2 text-base font-semibold transition cursor-pointer ${
                         isActive
                           ? "text-blue-500"
                           : darkMode
@@ -255,8 +294,8 @@ function Navbar({ darkMode, setDarkMode }) {
               </a>
               <a
                 href="#contact"
-                onClick={() => setMenuOpen(false)}
-                className="flex-1 text-center py-3 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-400 text-white text-sm font-semibold shadow-md"
+                onClick={(e) => handleNavClick(e, "#contact")}
+                className="flex-1 text-center py-3 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-400 text-white text-sm font-semibold shadow-md cursor-pointer"
               >
                 {navbar.cta}
               </a>
